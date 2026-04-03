@@ -140,6 +140,37 @@ pnpm --filter vue-demo build
 4. Verify behavior in corresponding demo app(s).
 5. Run `pnpm build` from repo root to validate end-to-end graph integrity.
 
+## Releasing Packages
+
+Publishing is handled by the GitHub Actions workflow at `.github/workflows/release-packages.yml`.
+
+### Option 1: Manual release (recommended)
+
+1. Open the `Release Packages` workflow in GitHub Actions.
+2. Click `Run workflow` on the default branch.
+3. Set the `version` input to a new valid semver (for example, `0.0.2`).
+
+What happens:
+
+- The workflow updates versions for:
+  - `packages/stencil-library/package.json`
+  - `packages/react-library/package.json`
+  - `packages/angular-library/package.json`
+  - `packages/vue-library/package.json`
+- It installs dependencies and runs `pnpm build`.
+- It publishes each package to GitHub Packages (`https://npm.pkg.github.com`) if that exact version is not already published.
+- After publish, it commits and pushes the version bump back to the default branch.
+
+### Option 2: Release event
+
+When a GitHub Release is published, the same workflow runs and publishes versions already present in package manifests.
+
+### Release rules
+
+- Use a new version each time. Reusing the same version is blocked by `npm version`.
+- Manual version-bump commit/push is only allowed from default-branch runs.
+- If a package version is already published, that package is skipped.
+
 ## Notes
 
 - Workspace packages are linked using `workspace:*`.

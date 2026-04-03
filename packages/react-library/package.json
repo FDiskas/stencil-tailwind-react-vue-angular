@@ -17,14 +17,15 @@
     "lint": "echo \"No lint configured for @fdiskas/react-library\""
   },
   "dependencies": {
-    "@stencil/react-output-target": "^1.2.0",
     "@fdiskas/stencil-library": "workspace:*"
   },
   "peerDependencies": {
+    "@stencil/react-output-target": ">=1.2.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
+    "@stencil/react-output-target": "^1.2.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "typescript": "catalog:"

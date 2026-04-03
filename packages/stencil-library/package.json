@@ -49,7 +49,11 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "!dist/**/*.cmp.test.js",
+    "!dist/**/*.cmp.test.d.ts",
+    "!dist/**/*.unit.test.js",
+    "!dist/**/*.unit.test.d.ts"
   ],
   "scripts": {
     "build": "stencil build",

@@ -17,13 +17,14 @@
     "lint": "echo \"No lint configured for @fdiskas/vue-library\""
   },
   "dependencies": {
-    "@fdiskas/stencil-library": "workspace:*",
-    "@stencil/vue-output-target": "^0.13.1"
+    "@fdiskas/stencil-library": "workspace:*"
   },
   "peerDependencies": {
+    "@stencil/vue-output-target": ">=0.13.1",
     "vue": ">=3"
   },
   "devDependencies": {
+    "@stencil/vue-output-target": "^0.13.1",
     "typescript": "catalog:"
   }
 }

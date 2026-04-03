@@ -209,9 +209,6 @@ importers:
       '@fdiskas/stencil-library':
         specifier: workspace:*
         version: link:../stencil-library
-      '@stencil/react-output-target':
-        specifier: ^1.2.0
-        version: 1.4.2(@stencil/core@4.43.3)(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react:
         specifier: '>=18'
         version: 19.2.4
@@ -219,6 +216,9 @@ importers:
         specifier: '>=18'
         version: 19.2.4(react@19.2.4)
     devDependencies:
+      '@stencil/react-output-target':
+        specifier: ^1.2.0
+        version: 1.4.2(@stencil/core@4.43.3)(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -276,13 +276,13 @@ importers:
       '@fdiskas/stencil-library':
         specifier: workspace:*
         version: link:../stencil-library
-      '@stencil/vue-output-target':
-        specifier: ^0.13.1
-        version: 0.13.1(@stencil/core@4.43.3)(vue@3.5.32(typescript@5.9.3))
       vue:
         specifier: '>=3'
         version: 3.5.32(typescript@5.9.3)
     devDependencies:
+      '@stencil/vue-output-target':
+        specifier: ^0.13.1
+        version: 0.13.1(@stencil/core@4.43.3)(vue@3.5.32(typescript@5.9.3))
       typescript:
         specifier: 'catalog:'
         version: 5.9.3

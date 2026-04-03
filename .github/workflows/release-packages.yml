@@ -50,6 +50,9 @@ jobs:
                     echo "Set version ${RELEASE_VERSION} in ${pkg_json}"
                   done
 
+            - name: Setup pnpm
+              uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+
             - name: Setup Node.js
               uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
               with:
@@ -57,8 +60,6 @@ jobs:
                   registry-url: https://npm.pkg.github.com
                   scope: "@fdiskas"
                   cache: pnpm
-            - name: Setup pnpm
-              uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile

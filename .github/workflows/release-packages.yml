@@ -2,6 +2,11 @@ name: Release Packages
 
 on:
     workflow_dispatch:
+        inputs:
+            version:
+                description: Package version to publish for all libraries
+                required: false
+                default: "0.0.1"
     release:
         types: [published]
 
@@ -20,26 +25,40 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
+              with:
+                  persist-credentials: false
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4
+            - name: Apply manual release version
+              if: ${{ github.event_name == 'workflow_dispatch' && inputs.version != '' }}
+              env:
+                  RELEASE_VERSION: ${{ inputs.version }}
+              run: |
+                  set -euo pipefail
+
+                  node -e "const v = process.argv[1]; const semver = /^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$/; if (!semver.test(v)) { console.error('Invalid semver version: ' + v); process.exit(1); }" "$RELEASE_VERSION"
+
+                  packages=(
+                    "packages/stencil-library/package.json"
+                    "packages/react-library/package.json"
+                    "packages/angular-library/package.json"
+                    "packages/vue-library/package.json"
+                  )
+
+                  for pkg_json in "${packages[@]}"; do
+                    pkg_dir=$(dirname "$pkg_json")
+                    npm version "$RELEASE_VERSION" --no-git-tag-version --allow-same-version --prefix "$pkg_dir"
+                    echo "Set version ${RELEASE_VERSION} in ${pkg_json}"
+                  done
 
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
                   node-version-file: .nvmrc
                   registry-url: https://npm.pkg.github.com
+                  scope: "@fdiskas"
                   cache: pnpm
-
-            - name: Configure npm auth for GitHub Packages
-              run: |
-                  cat <<EOF > "$HOME/.npmrc"
-                  @fdiskas:registry=https://npm.pkg.github.com
-                  //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
-                  always-auth=true
-                  EOF
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
@@ -73,3 +92,60 @@ jobs:
                     echo "Publishing ${pkg_name}@${pkg_version}"
                     pnpm --filter "./${pkg_dir}" publish --no-git-checks --registry "$registry"
                   done
+
+    commit-version-bump:
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.version != '' }}
+        needs: publish
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            packages: none
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Apply manual release version
+              env:
+                  RELEASE_VERSION: ${{ inputs.version }}
+              run: |
+                  set -euo pipefail
+
+                  node -e "const v = process.argv[1]; const semver = /^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$/; if (!semver.test(v)) { console.error('Invalid semver version: ' + v); process.exit(1); }" "$RELEASE_VERSION"
+
+                  packages=(
+                    "packages/stencil-library/package.json"
+                    "packages/react-library/package.json"
+                    "packages/angular-library/package.json"
+                    "packages/vue-library/package.json"
+                  )
+
+                  for pkg_json in "${packages[@]}"; do
+                    pkg_dir=$(dirname "$pkg_json")
+                    npm version "$RELEASE_VERSION" --no-git-tag-version --allow-same-version --prefix "$pkg_dir"
+                  done
+
+            - name: Commit and push version bump
+              env:
+                  RELEASE_VERSION: ${{ inputs.version }}
+              run: |
+                  set -euo pipefail
+
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+
+                  git add \
+                    packages/stencil-library/package.json \
+                    packages/react-library/package.json \
+                    packages/angular-library/package.json \
+                    packages/vue-library/package.json
+
+                  if git diff --cached --quiet; then
+                    echo "No version changes to commit"
+                    exit 0
+                  fi
+
+                  git commit -m "chore(release): bump package versions to ${RELEASE_VERSION}"
+                  git push origin "HEAD:${GITHUB_REF_NAME}"

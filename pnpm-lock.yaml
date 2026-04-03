@@ -4,6 +4,12 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    typescript:
+      specifier: ~5.9.3
+      version: 5.9.3
+
 importers:
 
   .:
@@ -79,7 +85,7 @@ importers:
         specifier: ~2.1.0
         version: 2.1.0(jasmine-core@5.9.0)(karma-jasmine@5.1.0(karma@6.4.4))(karma@6.4.4)
       typescript:
-        specifier: ~5.9.2
+        specifier: 'catalog:'
         version: 5.9.3
 
   apps/react-demo:
@@ -122,7 +128,7 @@ importers:
         specifier: ^17.4.0
         version: 17.4.0
       typescript:
-        specifier: ~5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
       typescript-eslint:
         specifier: ^8.57.0
@@ -150,7 +156,7 @@ importers:
         specifier: ^0.9.0
         version: 0.9.1(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3))
       typescript:
-        specifier: ~5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
       vite:
         specifier: ^8.0.1
@@ -190,7 +196,7 @@ importers:
         specifier: ~7.8.0
         version: 7.8.2
       typescript:
-        specifier: ~5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/react-library:
@@ -215,7 +221,7 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
       typescript:
-        specifier: ~5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/stencil-library:
@@ -234,7 +240,7 @@ importers:
         version: 1.10.0(@stencil/core@4.43.3)(@vitest/browser-playwright@4.1.2)(playwright@1.59.1)(vitest@4.1.2)
       '@stencil/vue-output-target':
         specifier: ^0.13.1
-        version: 0.13.1(@stencil/core@4.43.3)(vue@3.5.32(typescript@5.9.3))
+        version: 0.13.1(@stencil/core@4.43.3)(vue@3.5.32(typescript@6.0.2))
       '@types/node':
         specifier: ^22.13.5
         version: 22.19.17
@@ -261,7 +267,7 @@ importers:
         version: 3.5.32(typescript@5.9.3)
     devDependencies:
       typescript:
-        specifier: ~5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
 packages:
@@ -4205,6 +4211,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@6.0.2:
+    resolution: {integrity: sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   ua-parser-js@0.7.41:
     resolution: {integrity: sha512-O3oYyCMPYgNNHuO7Jjk3uacJWZF8loBgwrfd/5LE/HyZ3lUIOdniQ7DNXJcIgZbwioZxk0fLfI4EVnetdiX5jg==}
     hasBin: true
@@ -5932,6 +5943,12 @@ snapshots:
     optionalDependencies:
       '@stencil/core': 4.43.3
 
+  '@stencil/vue-output-target@0.13.1(@stencil/core@4.43.3)(vue@3.5.32(typescript@6.0.2))':
+    dependencies:
+      vue: 3.5.32(typescript@6.0.2)
+    optionalDependencies:
+      '@stencil/core': 4.43.3
+
   '@ts-morph/common@0.23.0':
     dependencies:
       fast-glob: 3.3.3
@@ -6256,6 +6273,12 @@ snapshots:
       '@vue/compiler-ssr': 3.5.32
       '@vue/shared': 3.5.32
       vue: 3.5.32(typescript@5.9.3)
+
+  '@vue/server-renderer@3.5.32(vue@3.5.32(typescript@6.0.2))':
+    dependencies:
+      '@vue/compiler-ssr': 3.5.32
+      '@vue/shared': 3.5.32
+      vue: 3.5.32(typescript@6.0.2)
 
   '@vue/shared@3.5.32': {}
 
@@ -8541,6 +8564,9 @@ snapshots:
 
   typescript@5.9.3: {}
 
+  typescript@6.0.2:
+    optional: true
+
   ua-parser-js@0.7.41: {}
 
   ufo@1.6.3: {}
@@ -8682,6 +8708,16 @@ snapshots:
       '@vue/shared': 3.5.32
     optionalDependencies:
       typescript: 5.9.3
+
+  vue@3.5.32(typescript@6.0.2):
+    dependencies:
+      '@vue/compiler-dom': 3.5.32
+      '@vue/compiler-sfc': 3.5.32
+      '@vue/runtime-dom': 3.5.32
+      '@vue/server-renderer': 3.5.32(vue@3.5.32(typescript@6.0.2))
+      '@vue/shared': 3.5.32
+    optionalDependencies:
+      typescript: 6.0.2
 
   watchpack@2.4.4:
     dependencies:

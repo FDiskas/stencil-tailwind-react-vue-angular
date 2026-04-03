@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "skills": {
+    "stenciljs-component-development": {
+      "source": "corlab-tech/skills",
+      "sourceType": "github",
+      "computedHash": "2195842f8a9d800dcfccdc2c7b124f3f741e45b7cb5a8a9760c3858ed349be8b"
+    },
+    "tailwind-design-system": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "988d80e52c67c3692d43cc963b6a048a239895e88b272b061de55370d0f8efc3"
+    },
+    "turborepo": {
+      "source": "vercel/turborepo",
+      "sourceType": "github",
+      "computedHash": "632e1f08972f55532e817819f857d47f19d6a8b8b2b407541c2840e28ac5e13e"
+    }
+  }
+}

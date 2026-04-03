@@ -10,30 +10,34 @@
   "unpkg": "dist/stencil-library/stencil-library.esm.js",
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/stencil-library/stencil-library.esm.js",
-      "require": "./dist/stencil-library/stencil-library.cjs.js",
-      "types": "./dist/types/index.d.ts"
+      "require": "./dist/stencil-library/stencil-library.cjs.js"
     },
     "./dist/*": {
-      "import": "./dist/*",
-      "types": "./dist/*"
+      "types": "./dist/*",
+      "import": "./dist/*"
+    },
+    "./dist/components/*.js": {
+      "types": "./dist/components/*.d.ts",
+      "import": "./dist/components/*.js"
     },
     "./components": {
-      "import": "./dist/components/index.js",
-      "types": "./dist/components/index.d.ts"
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
     },
     "./components/*.js": {
-      "import": "./dist/components/*.js",
-      "types": "./dist/components/*.d.ts"
+      "types": "./dist/components/*.d.ts",
+      "import": "./dist/components/*.js"
     },
     "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
+      "types": "./dist/components/my-component.d.ts",
+      "import": "./dist/components/my-component.js"
     },
     "./loader": {
+      "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
-      "require": "./loader/index.cjs",
-      "types": "./loader/index.d.ts"
+      "require": "./loader/index.cjs"
     }
   },
   "repository": {

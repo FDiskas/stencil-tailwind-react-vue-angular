@@ -1,10 +1,17 @@
 import { Config } from '@stencil/core';
+import { angularOutputTarget } from '@stencil/angular-output-target';
 import { reactOutputTarget } from '@stencil/react-output-target';
 import { vueOutputTarget } from '@stencil/vue-output-target';
 
 export const config: Config = {
   namespace: 'stencil-library',
   outputTargets: [
+    angularOutputTarget({
+      componentCorePackage: '@mediq/stencil-library',
+      directivesProxyFile:
+        '../angular-library/src/lib/stencil-generated/components.ts',
+      outputType: 'standalone',
+    }),
     vueOutputTarget({
       componentCorePackage: '@mediq/stencil-library',
       proxiesFile: '../vue-library/src/components.ts',

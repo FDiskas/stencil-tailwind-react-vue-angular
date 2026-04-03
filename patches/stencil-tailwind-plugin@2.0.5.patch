@@ -1,0 +1,14 @@
+diff --git a/dist/index.js b/dist/index.js
+index 2fe62dfad23acb2b05ca285391b21cecbb7cc37f..da4cbe2530738feb5d7069ff49bab96fcbb4d8cf 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -423,6 +423,9 @@ async function transformStyleStatement(opts, sourceFile, sourceText, filename) {
+     cssNode2.text = reducedClasses;
+   };
+   const cssNode = walkTo(sourceFile, stringLiteralPath);
++  if (!cssNode) {
++    return sourceText;
++  }
+   await stringStyleRewriter(cssNode);
+   const printer = import_typescript2.default.createPrinter();
+   return printer.printFile(sourceFile);

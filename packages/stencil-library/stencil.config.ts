@@ -2,9 +2,23 @@ import { Config } from '@stencil/core';
 import { angularOutputTarget } from '@stencil/angular-output-target';
 import { reactOutputTarget } from '@stencil/react-output-target';
 import { vueOutputTarget } from '@stencil/vue-output-target';
+import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
 
 export const config: Config = {
   namespace: 'stencil-library',
+  minifyJs: true,
+  minifyCss: true,
+  plugins: [
+    tailwind({
+      tailwindCssPath: './src/styles/tailwind.css',
+    }),
+    tailwindHMR({
+      tailwindCssPath: './src/styles/tailwind.css',
+    }),
+  ],
+  devServer: {
+    reloadStrategy: 'pageReload',
+  },
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: '@mediq/stencil-library',
@@ -31,6 +45,7 @@ export const config: Config = {
     },
     {
       type: 'docs-readme',
+      footer: '*Built with love! ❤️*',
     },
     {
       type: 'www',

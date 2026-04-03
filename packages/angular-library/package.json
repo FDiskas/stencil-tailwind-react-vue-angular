@@ -1,15 +1,17 @@
 {
-  "name": "@mq/angular-library",
+  "name": "@fdiskas/angular-library",
   "version": "0.0.1",
-  "private": true,
   "type": "module",
-  "main": "dist/fesm2022/mq-angular-library.mjs",
-  "module": "dist/fesm2022/mq-angular-library.mjs",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "main": "dist/fesm2022/fdiskas-angular-library.mjs",
+  "module": "dist/fesm2022/fdiskas-angular-library.mjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/fesm2022/mq-angular-library.mjs"
+      "default": "./dist/fesm2022/fdiskas-angular-library.mjs"
     }
   },
   "files": [
@@ -18,7 +20,7 @@
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
     "dev": "ng-packagr -p ng-package.json -w",
-    "lint": "echo \"No lint configured for @mq/angular-library\""
+    "lint": "echo \"No lint configured for @fdiskas/angular-library\""
   },
   "dependencies": {
     "tslib": "^2.8.1"
@@ -27,13 +29,13 @@
     "@angular/common": ">=20",
     "@angular/core": ">=20",
     "@angular/forms": ">=20",
-    "@mq/stencil-library": "*",
+    "@fdiskas/stencil-library": "*",
     "rxjs": "^7.8.0"
   },
   "devDependencies": {
     "@angular/compiler": "^20.3.0",
     "@angular/compiler-cli": "^20.3.0",
-    "@mq/stencil-library": "workspace:*",
+    "@fdiskas/stencil-library": "workspace:*",
     "ng-packagr": "^20.3.0",
     "rxjs": "~7.8.0",
     "typescript": "catalog:"

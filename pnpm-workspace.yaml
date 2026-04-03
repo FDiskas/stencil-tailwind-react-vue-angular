@@ -5,5 +5,11 @@ packages:
 catalog:
   typescript: ~5.9.3
 
+onlyBuiltDependencies:
+  - "@parcel/watcher"
+  - esbuild
+  - lmdb
+  - msgpackr-extract
+
 patchedDependencies:
   stencil-tailwind-plugin@2.0.5: patches/stencil-tailwind-plugin@2.0.5.patch

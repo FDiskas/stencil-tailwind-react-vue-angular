@@ -4,9 +4,9 @@
 @theme {
   --font-sans: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
 
-  --color-mq-surface: oklch(0.98 0.007 250);
-  --color-mq-surface-strong: oklch(0.93 0.017 250);
-  --color-mq-text: oklch(0.29 0.02 250);
-  --color-mq-primary: oklch(0.61 0.17 258);
-  --color-mq-primary-contrast: oklch(0.98 0.01 250);
+  --color-fdiskas-surface: oklch(0.98 0.007 250);
+  --color-fdiskas-surface-strong: oklch(0.93 0.017 250);
+  --color-fdiskas-text: oklch(0.29 0.02 250);
+  --color-fdiskas-primary: oklch(0.61 0.17 258);
+  --color-fdiskas-primary-contrast: oklch(0.98 0.01 250);
 }

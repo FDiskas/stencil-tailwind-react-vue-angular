@@ -1,4 +1,4 @@
-# mq-components
+# fdiskas-components
 
 Monorepo for building reusable Stencil web components once and consuming them in React, Angular, and Vue applications through framework-specific wrapper libraries.
 
@@ -33,24 +33,24 @@ Monorepo for building reusable Stencil web components once and consuming them in
 
 ### Core source package
 
-- `@mq/stencil-library` (`packages/stencil-library`)
+- `@fdiskas/stencil-library` (`packages/stencil-library`)
 - Owns component implementation (currently `my-component`)
 - Generates distribution artifacts and framework proxies
 
 ### Wrapper packages
 
-- `@mq/react-library` (`packages/react-library`)
+- `@fdiskas/react-library` (`packages/react-library`)
   - Re-exports generated React wrappers from Stencil output
-- `@mq/angular-library` (`packages/angular-library`)
+- `@fdiskas/angular-library` (`packages/angular-library`)
   - Exposes generated Angular standalone wrappers
-- `@mq/vue-library` (`packages/vue-library`)
+- `@fdiskas/vue-library` (`packages/vue-library`)
   - Re-exports generated Vue wrappers
 
 ### Demo applications
 
-- `apps/react-demo` consumes `@mq/react-library`
-- `apps/angular-demo` consumes `@mq/angular-library` (and `@mq/stencil-library`)
-- `apps/vue-demo` consumes `@mq/vue-library`
+- `apps/react-demo` consumes `@fdiskas/react-library`
+- `apps/angular-demo` consumes `@fdiskas/angular-library` (and `@fdiskas/stencil-library`)
+- `apps/vue-demo` consumes `@fdiskas/vue-library`
 
 ## Build Graph and Task Wiring
 
@@ -117,16 +117,16 @@ pnpm --filter angular-demo dev
 pnpm --filter vue-demo dev
 
 # Stencil package watch/dev server
-pnpm --filter @mq/stencil-library start
+pnpm --filter @fdiskas/stencil-library start
 ```
 
 ### Build specific packages/apps
 
 ```bash
-pnpm --filter @mq/stencil-library build
-pnpm --filter @mq/react-library build
-pnpm --filter @mq/angular-library build
-pnpm --filter @mq/vue-library build
+pnpm --filter @fdiskas/stencil-library build
+pnpm --filter @fdiskas/react-library build
+pnpm --filter @fdiskas/angular-library build
+pnpm --filter @fdiskas/vue-library build
 pnpm --filter react-demo build
 pnpm --filter angular-demo build
 pnpm --filter vue-demo build

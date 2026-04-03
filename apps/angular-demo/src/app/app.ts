@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MyComponent } from '@mq/angular-library';
+import { MyComponent } from '@fdiskas/angular-library';
 
 @Component({
   selector: 'app-root',

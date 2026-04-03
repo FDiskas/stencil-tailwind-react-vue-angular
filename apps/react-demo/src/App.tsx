@@ -1,4 +1,4 @@
-import { MyComponent } from '@mq/react-library'
+import { MyComponent } from '@fdiskas/react-library'
 import './App.css'
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         This component is authored in Stencil and consumed through the generated
         React wrapper package.
       </p>
-      <MyComponent first="mq" middle="UI" last="Team" />
+      <MyComponent first="fdiskas" middle="UI" last="Team" />
     </main>
   )
 }

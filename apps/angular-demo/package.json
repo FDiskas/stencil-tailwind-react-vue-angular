@@ -23,8 +23,8 @@
   },
   "private": true,
   "dependencies": {
-    "@mq/angular-library": "workspace:*",
-    "@mq/stencil-library": "workspace:*",
+    "@fdiskas/angular-library": "workspace:*",
+    "@fdiskas/stencil-library": "workspace:*",
     "@angular/common": "^20.3.0",
     "@angular/compiler": "^20.3.0",
     "@angular/core": "^20.3.0",

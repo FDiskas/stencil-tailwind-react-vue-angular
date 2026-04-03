@@ -4,9 +4,9 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZo
 
 import { ProxyCmp } from './angular-component-lib/utils';
 
-import type { Components } from '@mq/stencil-library/components';
+import type { Components } from '@fdiskas/stencil-library/components';
 
-import { defineCustomElement as defineMyComponent } from '@mq/stencil-library/components/my-component.js';
+import { defineCustomElement as defineMyComponent } from '@fdiskas/stencil-library/components/my-component.js';
 @ProxyCmp({
   defineCustomElementFn: defineMyComponent,
   inputs: ['first', 'last', 'middle']

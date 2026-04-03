@@ -21,19 +21,19 @@ export const config: Config = {
   },
   outputTargets: [
     angularOutputTarget({
-      componentCorePackage: '@mq/stencil-library',
+      componentCorePackage: '@fdiskas/stencil-library',
       directivesProxyFile:
         '../angular-library/src/lib/stencil-generated/components.ts',
       outputType: 'standalone',
     }),
     vueOutputTarget({
-      componentCorePackage: '@mq/stencil-library',
+      componentCorePackage: '@fdiskas/stencil-library',
       proxiesFile: '../vue-library/src/components.ts',
       includeImportCustomElements: true,
     }),
     reactOutputTarget({
       outDir: '../react-library/src/components/stencil-generated',
-      stencilPackageName: '@mq/stencil-library',
+      stencilPackageName: '@fdiskas/stencil-library',
     }),
     {
       type: 'dist',

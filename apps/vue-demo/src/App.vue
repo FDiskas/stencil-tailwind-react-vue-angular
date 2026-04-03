@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MyComponent } from '@mq/vue-library'
+import { MyComponent } from '@fdiskas/vue-library'
 </script>
 
 <template>
@@ -9,6 +9,6 @@ import { MyComponent } from '@mq/vue-library'
       This component is authored in Stencil and consumed through the generated
       Vue wrapper package.
     </p>
-    <MyComponent first="mq" middle="UI" last="Team" />
+    <MyComponent first="fdiskas" middle="UI" last="Team" />
   </main>
 </template>

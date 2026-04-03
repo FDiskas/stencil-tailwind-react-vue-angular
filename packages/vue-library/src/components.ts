@@ -3,9 +3,9 @@
 /* auto-generated vue proxies */
 import { defineContainer, type StencilVueComponent } from '@stencil/vue-output-target/runtime';
 
-import type { JSX } from '@mq/stencil-library';
+import type { JSX } from '@fdiskas/stencil-library';
 
-import { defineCustomElement as defineMyComponent } from '@mq/stencil-library/components/my-component.js';
+import { defineCustomElement as defineMyComponent } from '@fdiskas/stencil-library/components/my-component.js';
 
 
 

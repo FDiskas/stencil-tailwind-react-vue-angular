@@ -1,10 +1,10 @@
 {
-  "name": "mq-components",
+  "name": "fdiskas-components",
   "private": true,
   "packageManager": "pnpm@10.18.1",
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --ui tui",
     "lint": "turbo run lint",
     "test": "turbo run test"
   },

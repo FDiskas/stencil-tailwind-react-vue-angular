@@ -1,8 +1,10 @@
 {
-  "name": "@mq/react-library",
+  "name": "@fdiskas/react-library",
   "version": "0.0.1",
-  "private": true,
   "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,11 +14,11 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsc -w -p tsconfig.json",
-    "lint": "echo \"No lint configured for @mq/react-library\""
+    "lint": "echo \"No lint configured for @fdiskas/react-library\""
   },
   "dependencies": {
     "@stencil/react-output-target": "^1.2.0",
-    "@mq/stencil-library": "workspace:*"
+    "@fdiskas/stencil-library": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",

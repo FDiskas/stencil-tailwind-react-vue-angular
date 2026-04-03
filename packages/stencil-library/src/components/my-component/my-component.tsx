@@ -28,9 +28,9 @@ export class MyComponent {
 
   render() {
     return (
-      <div class="rounded-xl border border-mq-surface-strong bg-mq-surface p-4 font-sans text-mq-text shadow-sm">
-        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-mq-primary">
-          mq UI
+      <div class="rounded-xl border border-fdiskas-surface-strong bg-fdiskas-surface p-4 font-sans text-fdiskas-text shadow-sm">
+        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-fdiskas-primary">
+          fdiskas UI
         </p>
         <p class="mt-2 text-base leading-6">Hello, World! I&apos;m {this.getText()}</p>
       </div>

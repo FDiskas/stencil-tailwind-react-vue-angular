@@ -1,9 +1,9 @@
 ---
-name: mq-stencil-monorepo-architecture
+name: fdiskas-stencil-monorepo-architecture
 description: |
   Use when working in this repository on monorepo architecture, Turborepo task wiring,
   Stencil component packages, React wrapper generation, Vite demo apps, pnpm workspaces,
-  or cross-framework plans for React/Angular/Vue. Triggers on: mq components, stencil monorepo,
+  or cross-framework plans for React/Angular/Vue. Triggers on: fdiskas components, stencil monorepo,
   turborepo, react output target, wrapper library, vite demo, pnpm workspace, angular wrapper,
   vue wrapper, web components design system.
 allowed-tools:
@@ -15,7 +15,7 @@ allowed-tools:
   - Glob
 ---
 
-# mq Stencil Monorepo Architecture Skill
+# fdiskas Stencil Monorepo Architecture Skill
 
 This skill is the source of truth for how this repository is structured and how to safely extend it.
 
@@ -39,8 +39,8 @@ Top-level important files:
 
 Packages/apps in this repo:
 
-- `packages/stencil-library` -> `@mq/stencil-library`
-- `packages/react-library` -> `@mq/react-library`
+- `packages/stencil-library` -> `@fdiskas/stencil-library`
+- `packages/react-library` -> `@fdiskas/react-library`
 - `apps/react-demo` -> Vite React consumer app
 
 ## Non-Negotiable Conventions
@@ -59,13 +59,13 @@ When using `@stencil/react-output-target`, these are mandatory:
    - `externalRuntime: false`
 2. Keep `reactOutputTarget({...})` configured with:
    - `outDir: '../react-library/src/components/stencil-generated'`
-   - `stencilPackageName: '@mq/stencil-library'`
+   - `stencilPackageName: '@fdiskas/stencil-library'`
 3. Ensure Stencil package exports include deep paths used by generated wrappers:
    - `"./dist/*"`
    - `"./components/*"` (recommended)
 
-If missing, TypeScript in `@mq/react-library` may fail to resolve generated imports like:
-`@mq/stencil-library/dist/components/<component>.js`.
+If missing, TypeScript in `@fdiskas/react-library` may fail to resolve generated imports like:
+`@fdiskas/stencil-library/dist/components/<component>.js`.
 
 ## React Wrapper Package Rules
 
@@ -79,14 +79,14 @@ In `packages/react-library`:
    - `moduleResolution: "bundler"`
 3. Keep dependency on:
    - `@stencil/react-output-target`
-   - `@mq/stencil-library` via `workspace:*`
+   - `@fdiskas/stencil-library` via `workspace:*`
 
 ## Consumer App Rules (React Demo)
 
 In `apps/react-demo`:
 
-1. Depend on `@mq/react-library` via `workspace:*`.
-2. Import wrappers directly, e.g. `import { MyComponent } from '@mq/react-library'`.
+1. Depend on `@fdiskas/react-library` via `workspace:*`.
+2. Import wrappers directly, e.g. `import { MyComponent } from '@fdiskas/react-library'`.
 3. Keep demo intentionally simple and focused on integration proof.
 
 ## Default Commands
@@ -128,7 +128,7 @@ When adding Angular/Vue wrappers:
 
 This skill should be selected whenever requests mention one or more of:
 
-- mq components monorepo
+- fdiskas components monorepo
 - turborepo setup or task wiring
 - stencil reusable components
 - react/angular/vue wrappers

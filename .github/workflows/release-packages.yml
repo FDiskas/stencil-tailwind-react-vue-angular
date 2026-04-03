@@ -1,0 +1,77 @@
+name: Release Packages
+
+on:
+    workflow_dispatch:
+    release:
+        types: [published]
+
+permissions:
+    contents: read
+    packages: write
+
+concurrency:
+    group: release-packages-${{ github.ref }}
+    cancel-in-progress: false
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  registry-url: https://npm.pkg.github.com
+                  cache: pnpm
+
+            - name: Configure npm auth for GitHub Packages
+              run: |
+                  cat <<EOF > "$HOME/.npmrc"
+                  @fdiskas:registry=https://npm.pkg.github.com
+                  //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+                  always-auth=true
+                  EOF
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Build workspace
+              run: pnpm build
+
+            - name: Publish packages to GitHub Packages
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  set -euo pipefail
+
+                  registry="https://npm.pkg.github.com"
+                  packages=(
+                    "packages/stencil-library"
+                    "packages/react-library"
+                    "packages/angular-library"
+                    "packages/vue-library"
+                  )
+
+                  for pkg_dir in "${packages[@]}"; do
+                    pkg_name=$(node -p "require('./${pkg_dir}/package.json').name")
+                    pkg_version=$(node -p "require('./${pkg_dir}/package.json').version")
+
+                    if npm view "${pkg_name}@${pkg_version}" --registry "$registry" > /dev/null 2>&1; then
+                      echo "Skipping ${pkg_name}@${pkg_version}: already published"
+                      continue
+                    fi
+
+                    echo "Publishing ${pkg_name}@${pkg_version}"
+                    pnpm --filter "./${pkg_dir}" publish --no-git-checks --registry "$registry"
+                  done

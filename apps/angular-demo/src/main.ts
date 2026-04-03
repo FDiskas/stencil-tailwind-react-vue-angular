@@ -1,5 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { defineCustomElements } from '@mediq/stencil-library/loader';
+import { defineCustomElements } from '@mq/stencil-library/loader';
 
 import { appConfig } from './app/app.config';
 import { App } from './app/app';

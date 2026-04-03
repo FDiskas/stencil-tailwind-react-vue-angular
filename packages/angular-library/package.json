@@ -1,15 +1,15 @@
 {
-  "name": "@mediq/angular-library",
+  "name": "@mq/angular-library",
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "main": "dist/fesm2022/mediq-angular-library.mjs",
-  "module": "dist/fesm2022/mediq-angular-library.mjs",
+  "main": "dist/fesm2022/mq-angular-library.mjs",
+  "module": "dist/fesm2022/mq-angular-library.mjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/fesm2022/mediq-angular-library.mjs"
+      "default": "./dist/fesm2022/mq-angular-library.mjs"
     }
   },
   "files": [
@@ -18,7 +18,7 @@
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
     "dev": "ng-packagr -p ng-package.json -w",
-    "lint": "echo \"No lint configured for @mediq/angular-library\""
+    "lint": "echo \"No lint configured for @mq/angular-library\""
   },
   "dependencies": {
     "tslib": "^2.8.1"
@@ -27,13 +27,13 @@
     "@angular/common": ">=20",
     "@angular/core": ">=20",
     "@angular/forms": ">=20",
-    "@mediq/stencil-library": "*",
+    "@mq/stencil-library": "*",
     "rxjs": "^7.8.0"
   },
   "devDependencies": {
     "@angular/compiler": "^20.3.0",
     "@angular/compiler-cli": "^20.3.0",
-    "@mediq/stencil-library": "workspace:*",
+    "@mq/stencil-library": "workspace:*",
     "ng-packagr": "^20.3.0",
     "rxjs": "~7.8.0",
     "typescript": "catalog:"

@@ -30,7 +30,7 @@ export class MyComponent {
     return (
       <div class="rounded-xl border border-mq-surface-strong bg-mq-surface p-4 font-sans text-mq-text shadow-sm">
         <p class="text-xs font-semibold uppercase tracking-[0.16em] text-mq-primary">
-          Mediq UI
+          mq UI
         </p>
         <p class="mt-2 text-base leading-6">Hello, World! I&apos;m {this.getText()}</p>
       </div>

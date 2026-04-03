@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mediq/vue-library": "workspace:*",
+    "@mq/vue-library": "workspace:*",
     "vue": "^3.5.30"
   },
   "devDependencies": {

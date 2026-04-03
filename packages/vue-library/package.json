@@ -1,5 +1,5 @@
 {
-  "name": "@mediq/vue-library",
+  "name": "@mq/vue-library",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -12,10 +12,10 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsc -w -p tsconfig.json",
-    "lint": "echo \"No lint configured for @mediq/vue-library\""
+    "lint": "echo \"No lint configured for @mq/vue-library\""
   },
   "dependencies": {
-    "@mediq/stencil-library": "workspace:*",
+    "@mq/stencil-library": "workspace:*",
     "@stencil/vue-output-target": "^0.13.1"
   },
   "peerDependencies": {

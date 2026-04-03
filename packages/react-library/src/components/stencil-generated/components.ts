@@ -7,7 +7,7 @@
 
 /* eslint-disable */
 
-import { MyComponent as MyComponentElement, defineCustomElement as defineMyComponent } from "@mediq/stencil-library/dist/components/my-component.js";
+import { MyComponent as MyComponentElement, defineCustomElement as defineMyComponent } from "@mq/stencil-library/dist/components/my-component.js";
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
 import React from 'react';

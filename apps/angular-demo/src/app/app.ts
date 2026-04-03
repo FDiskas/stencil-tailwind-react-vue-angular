@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MyComponent } from '@mediq/angular-library';
+import { MyComponent } from '@mq/angular-library';
 
 @Component({
   selector: 'app-root',

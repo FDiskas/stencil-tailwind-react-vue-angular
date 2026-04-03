@@ -2,7 +2,7 @@
 
 When a task involves this repository's architecture, package wiring, or framework wrapper integration, load and apply the local skill:
 
-- `.agents/skills/mediq-stencil-monorepo-architecture/SKILL.md`
+- `.agents/skills/mq-stencil-monorepo-architecture/SKILL.md`
 
 Prefer this skill for requests related to:
 

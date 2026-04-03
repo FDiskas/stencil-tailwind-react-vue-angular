@@ -1,6 +1,6 @@
 {
   "name": "@fdiskas/stencil-library",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Stencil Component Starter",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

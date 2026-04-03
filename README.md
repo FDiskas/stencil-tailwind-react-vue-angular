@@ -82,7 +82,7 @@ This means package-level changes should start in the Stencil source package and 
 
 ### Prerequisites
 
-- Node.js 20+
+- Node.js 24 (from `.nvmrc`)
 - pnpm 10+
 
 ### Install dependencies

@@ -14,7 +14,7 @@ function App() {
         This component is authored in Stencil and consumed through the generated
         React wrapper package.
       </p>
-      <MyComponent first="Mediq" middle="UI" last="Team" />
+      <MyComponent first="Mediq" middle="UI" last="Team"  />
     </main>
   )
 }

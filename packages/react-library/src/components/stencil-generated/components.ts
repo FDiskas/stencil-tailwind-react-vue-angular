@@ -8,6 +8,7 @@
 /* eslint-disable */
 
 import { MyComponent as MyComponentElement, defineCustomElement as defineMyComponent } from "@fdiskas/stencil-library/dist/components/my-component.js";
+import { PocButton as PocButtonElement, defineCustomElement as definePocButton } from "@fdiskas/stencil-library/dist/components/poc-button.js";
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
 import React from 'react';
@@ -21,4 +22,15 @@ export const MyComponent: StencilReactComponent<MyComponentElement, MyComponentE
     react: React,
     events: {} as MyComponentEvents,
     defineCustomElement: defineMyComponent
+});
+
+export type PocButtonEvents = NonNullable<unknown>;
+
+export const PocButton: StencilReactComponent<PocButtonElement, PocButtonEvents> = /*@__PURE__*/ createComponent<PocButtonElement, PocButtonEvents>({
+    tagName: 'poc-button',
+    elementClass: PocButtonElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as PocButtonEvents,
+    defineCustomElement: definePocButton
 });

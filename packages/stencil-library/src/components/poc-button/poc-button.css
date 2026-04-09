@@ -1,0 +1,75 @@
+/* :host {
+  display: inline-block;
+  color: inherit;
+  --poc-button-bg: #0284c7;
+  --poc-button-fg: #ffffff;
+  --poc-button-border: transparent;
+  --poc-button-padding: 0.5rem 1rem;
+  --poc-button-radius: 0.375rem;
+  --poc-button-shadow: none;
+  --poc-button-focus: #0ea5e9;
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--poc-button-radius);
+  font: inherit;
+  line-height: 1;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--poc-button-bg);
+  color: var(--poc-button-fg);
+  border: 1px solid var(--poc-button-border);
+  padding: var(--poc-button-padding);
+  box-shadow: var(--poc-button-shadow);
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    filter 200ms ease,
+    opacity 200ms ease;
+}
+
+button:hover {
+  filter: brightness(1.03);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--poc-button-focus);
+  outline-offset: 2px;
+}
+
+:host([disabled]) button {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+:host([variant='primary']) {
+  --poc-button-bg: #0284c7;
+  --poc-button-fg: #ffffff;
+}
+
+:host([variant='secondary']) {
+  --poc-button-bg: #ffffff;
+  --poc-button-fg: #0f172a;
+  --poc-button-border: #cbd5e1;
+}
+
+:host([size='sm']) {
+  --poc-button-padding: 0.375rem 0.75rem;
+}
+
+:host([size='md']) {
+  --poc-button-padding: 0.5rem 1rem;
+}
+
+:host([size='lg']) {
+  --poc-button-padding: 0.75rem 1.25rem;
+} */

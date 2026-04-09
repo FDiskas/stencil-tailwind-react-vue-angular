@@ -20,6 +20,28 @@ export namespace Components {
          */
         "middle"?: string;
     }
+    interface PocButton {
+        /**
+          * Disables user interaction.
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Button size.
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * Native button type.
+          * @default 'button'
+         */
+        "type": 'button' | 'submit' | 'reset';
+        /**
+          * Visual style variant.
+          * @default 'primary'
+         */
+        "variant": 'primary' | 'secondary';
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +50,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLPocButtonElement extends Components.PocButton, HTMLStencilElement {
+    }
+    var HTMLPocButtonElement: {
+        prototype: HTMLPocButtonElement;
+        new (): HTMLPocButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "poc-button": HTMLPocButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,15 +76,44 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface PocButton {
+        /**
+          * Disables user interaction.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Button size.
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Native button type.
+          * @default 'button'
+         */
+        "type"?: 'button' | 'submit' | 'reset';
+        /**
+          * Visual style variant.
+          * @default 'primary'
+         */
+        "variant"?: 'primary' | 'secondary';
+    }
 
     interface MyComponentAttributes {
         "first": string;
         "middle": string;
         "last": string;
     }
+    interface PocButtonAttributes {
+        "variant": 'primary' | 'secondary';
+        "size": 'sm' | 'md' | 'lg';
+        "disabled": boolean;
+        "type": 'button' | 'submit' | 'reset';
+    }
 
     interface IntrinsicElements {
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
+        "poc-button": Omit<PocButton, keyof PocButtonAttributes> & { [K in keyof PocButton & keyof PocButtonAttributes]?: PocButton[K] } & { [K in keyof PocButton & keyof PocButtonAttributes as `attr:${K}`]?: PocButtonAttributes[K] } & { [K in keyof PocButton & keyof PocButtonAttributes as `prop:${K}`]?: PocButton[K] };
     }
 }
 export { LocalJSX as JSX };
@@ -63,6 +121,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "poc-button": LocalJSX.IntrinsicElements["poc-button"] & JSXBase.HTMLAttributes<HTMLPocButtonElement>;
         }
     }
 }

@@ -7,6 +7,7 @@ import { ProxyCmp } from './angular-component-lib/utils';
 import type { Components } from '@fdiskas/stencil-library/components';
 
 import { defineCustomElement as defineMyComponent } from '@fdiskas/stencil-library/components/my-component.js';
+import { defineCustomElement as definePocButton } from '@fdiskas/stencil-library/components/poc-button.js';
 @ProxyCmp({
   defineCustomElementFn: defineMyComponent,
   inputs: ['first', 'last', 'middle']
@@ -28,5 +29,28 @@ export class MyComponent {
 
 
 export declare interface MyComponent extends Components.MyComponent {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: definePocButton,
+  inputs: ['disabled', 'size', 'type', 'variant']
+})
+@Component({
+  selector: 'poc-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['disabled', 'size', 'type', 'variant'],
+})
+export class PocButton {
+  protected el: HTMLPocButtonElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PocButton extends Components.PocButton {}
 
 

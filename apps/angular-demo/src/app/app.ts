@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { MyComponent } from '@fdiskas/angular-library';
+import { MyComponent, PocButton } from '@fdiskas/angular-library';
 
 @Component({
   selector: 'app-root',
-  imports: [MyComponent],
+  imports: [MyComponent, PocButton],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

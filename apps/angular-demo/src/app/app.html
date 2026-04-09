@@ -3,5 +3,26 @@
     <h1>{{ title }}</h1>
     <p>Reusable Stencil component consumed through @fdiskas/angular-library.</p>
     <my-component first="fdiskas" middle="Angular" last="Demo"></my-component>
+
+    <section className="card">
+      <h2>Button variants</h2>
+      <div className="actions">
+        <poc-button variant="primary" size="md">Primary Action</poc-button>
+        <poc-button variant="secondary" size="md">Secondary Action</poc-button>
+      </div>
+
+      <h2>Button sizes</h2>
+      <div className="actions">
+        <poc-button variant="primary" size="sm">Small</poc-button>
+        <poc-button variant="primary" size="md">Medium</poc-button>
+        <poc-button variant="primary" size="lg">Large</poc-button>
+      </div>
+
+      <h2>Disabled state</h2>
+      <div className="actions">
+        <poc-button variant="primary" size="md" disabled>Disabled Primary</poc-button>
+        <poc-button variant="secondary" size="md" disabled>Disabled Secondary</poc-button>
+      </div>
+    </section>
   </section>
 </main>
